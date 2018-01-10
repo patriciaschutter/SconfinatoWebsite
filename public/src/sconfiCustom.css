@@ -34,31 +34,32 @@ div{
 
 .navbar-default{
   background-color: transparent;
-  /*margin-top: 1%;*/
+  margin-top: 0.5%;
   margin-bottom: 1%;
-  border-bottom:  1px double #2a344c; 
-  outline: 1px solid #2a344c;
+  /*border:  1px double #fff; 
+  outline: 1px solid #fff;
   outline-offset: 2px;
-  /*outline-right: none;
+  outline-right: none;
   outline-left: none;
   border-left: none;
   border-right: none;*/
-
+  border-bottom: none;
   height: 15%;
-  color: #2a344c;
+  color: transparent;
 }
 
 #nav-container{
   height:100%;
-  background: rgba(255,255,255, 0.3);
+  background: rgba(255,255,255, 0.5);
+  border: solid 1px white;
 }
 
 .navbar-brand{
   padding: 0px;
   height: 100%;
   padding-left: 5%;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
 }
 
 #navWapen{
@@ -68,6 +69,10 @@ div{
   padding: 0px;
 }
 
+.nav > li > a {
+
+  color: white;
+}
 .navbar-nav{
   margin: auto, 0px;
   color: #2a344c;
@@ -79,6 +84,24 @@ div{
   align-items: center; /* align vertical */
 }
 
+
+ 
+
+
+/* FOOTER */
+#footerContainer{
+  /*background-color: #2a344c;*/
+  height: 15%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  background: url();
+  background: rgba(255,255,255, 0.5);
+  border-top:  1px double #fff; 
+  outline: 1px solid #9e9e9e6b;
+  outline-offset: 2px;
+  z-index: 2;
+}
 
 /* PREPAGE*/
 #divBgLogin, #containerLogin, #containerPrepage{
@@ -190,11 +213,11 @@ section {
 #startHomepage{
   display: block;
   position: relative;
-  width: 100%;
-  overflow: hidden;
+  width: auto;
+  /*overflow: hidden;*/
   height: 85%; 
   color: #2a344c;
-  background: url(/images/general/groepLustrumLissabon.jpg) no-repeat center center fixed; 
+  background: url(/images/background/splashwit.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -202,21 +225,35 @@ section {
   /*opacity: 0.5;*/
 }
 
-.h1HOmepage{
-  font-size: 800%;
-   color: #fff;
-  text-shadow: #2a344c 4px 4px;
+#h1HOmepage{
+  font-size: 900%;
+  color: #2a344c;
+  text-shadow: 10px 10px 10px #FFFFFF;
   text-align: center;
-  margin-top: 15%;
-  width: 100%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-weight: bold;
 }
 
-.h1ondertitel{
-  font-size: 800%;
-  color: #fff;
-  text-shadow: #2a344c 4px 4px;
+.h2HOmepage{
+  font-size: 220%;
+  color: #2a344c;
+  text-shadow: 10px 10px 10px #FFFFFF;
+  margin-top: 20%;
   width: 100%;
+  margin-bottom: 0px;
+  text-align: center;
+  font-weight: bold;
 }
+
+#h2H0mepageRight{
+  text-align: center;
+  margin-top: 0px;
+  font-size: 175%;
+  text-shadow: 20px 20px 20px #FFFFFF;
+}
+
+/*#2c1f1feb LICHTGRIJS*/
 
 /*FOR ADJUSTING TEXT > LIKE THE TITLE > EXAMPLE CODE*/
 /*html {
@@ -233,18 +270,7 @@ section {
   }
 }*/
 
-/* FOOTER */
-#footerContainer{
-  /*background-color: #2a344c;*/
-  height: 15%;
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
-  /*background: rgba(255,255,255, 0.5);*/
-  border-top:  1px double #2a344c; 
-  outline: 1px solid #2a344c;
-  outline-offset: 2px;
-}
+
 
 /*LEDEN*/
 #boomtopImg{
@@ -255,30 +281,35 @@ section {
 }
 
 /*LOGIN*/
-#parentBgLogin{
+#containerLogin{
   position: relative;
   height: 85%;
-  width: 100%;
   padding: 0px;
-}
-
-#bgLoginPic{
-  width: 100%;
-  max-height: 100%;
+  display: block;
+  width: auto;
+  /*overflow: hidden;*/
+  height: 85%; 
+  background: url(/images/background/splashwit.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #childBgLogin{
-  position: absolute;
-  top: 20%;
-  left: 0;
-  margin-top: 10%;
+  margin-top: 30%;
 }
 
-#childBgLogin img{
-  width: 50%;
-  height: auto;
+
+
+
+#loginForm, #loginForm input{
+  text-align: center;
 }
 
+#submitLogin{
+  width: 100%;
+}
 
 
 
