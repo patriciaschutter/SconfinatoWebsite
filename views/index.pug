@@ -2,9 +2,7 @@ html
 	head
 		title Sconfinato
 		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
-
 		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
-
 		link(rel="stylesheet" type="text/css" href="src/sconfiCustom.css")
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 		meta(charset="utf-8")
@@ -12,7 +10,7 @@ html
 
 	body
 		include nav
-		div(class="container" id="containerPrepage")
+		div(class="container-fluid" id="containerPrepage")
 			div(class="row prepageRow" id="videoRow")
 					div(class="hidden-sm-down col-md-12" id="divPrepageVideo")
 						//- a(href="/homepage")
@@ -22,14 +20,15 @@ html
 							a(href="#startHomepage")
 								span(id="arrowPrepage")
 
-			
 			div(class="row " id="startHomepage")
-				div(class="col-sm-12"  )
+				div(class="col-sm-8 col-sm-offset-2")
+					h1(class="h1HOmepage") SCONFINATO 
+					h1(class="h1ondertitel") '87
+				div(class="col-sm-12" style="text-align: center")
+					//- img(src="/images/general/groepLustrumLissabon.jpg")
 
-					h1(id="h1HOmepage") home page
 
-					p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmlorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonpit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatuit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatuit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi eiusmlorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonpit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatuit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatuit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim atuit, sed do eiusmodtempor iolore magna aliqua. Ut enimodconsequat. Duis aute irure dolor in r in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatuit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla aliquip ex ea commodconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariaturoident, sunt in culpa qui officia deserunt mollit anim id est laborum. odtempor niam,
-
+		
 			include footer			
 	
 
@@ -38,6 +37,7 @@ html
 
 	script.
 		$(document).ready(function(){
+		// CLICK ON ARROW OR ON VIDEO TO GO FROM PREPAGE TO HOMEPAGE SECTION
 			$("#arrowPrepage").click(function() {
 				$('html, body').animate({
 					scrollTop: $("#startHomepage").offset().top
@@ -51,21 +51,8 @@ html
 			});
 		})
 
-		//- $(document).ready(function(){
-		//- 	var height = movieDiv.outerHeight(),
-		//- 	$("#navbarID").hide()
-		//- 	$(".navbarspacing").hide()
-		//- 	$(window).scroll(function () {
-		//- 		if ($(window).scrollTop() > 250) {
-		//- 		  $("#navbarID").fadeIn().show();
-		//- 		}
-		//- 		if ($(window).scrollTop() < 399) {
-		//- 		 $("#navbarID").hide()
-		//- 		}
-		//- 	})
-		//- })
-
 		$(document).ready(function(){
+		// ON SCROLL VIDEO'S OPACITY CHANGES + NAVBAR WILL (DIS)APPEAR
 			var movieDiv = $('.prepageRow');
 			var range = 250;
 
@@ -82,140 +69,13 @@ html
 
 			  if (calc > '1') {
 				movieDiv.css({ 'opacity': 1 });
-				$("#navbarID").hide()
+				$("#navbarID").fadeOut();
 
 			  } else if ( calc < '0' ) {
 				movieDiv.css({ 'opacity': 0 });
-				$("#navbarID").fadeIn().show();
+				$("#navbarID").fadeIn();
 				
+
 			  } 
 			});
 		})
-
-//- script.
-//- 		$(document).ready(function(){
-//- 			var subscription = "super_swopper"
-//- 			$(".subscripColumn").click(function(){
-//- 				$(".subscripColumn").removeAttr("id", "selectedSubscription")
-//- 				$(this).attr('id', 'selectedSubscription')
-//- 				subscription = $("#selectedSubscription").attr("value")
-//- 				$("#subscriptionType").attr("value", subscription)
-//- 			})
-//- 		})
-
-
-
-	//- 	$('a[href^="#"]').on('click',function (e) {
-	//-     e.preventDefault();
-
-	//-     //shows what href contains
-	//-     var targethash = this.hash,
-	//-     $target = $(targethash);
-	//-     $('.content').stop().animate({
-	//-         'scrollTop': $target.offset().top//-187 //scroll to top position on href element for example #about
-	//-     }, 1000, 'swing');
-	//- });			 
-
-
-		//- $(document).ready(function(){
-		//- 	$("#navbarID").removeClass('navbar-fixed-top')
-		//- 	$(window).scroll(function () {
-		//- 		if ($(window).scrollTop() > 800) {
-		//- 		  $("#navbarID").addClass('navbar-fixed-top');
-		//- 		}
-		//- 		if ($(window).scrollTop() < 799) {
-		//- 		 $("#navbarID").removeClass('navbar-fixed-top')
-		//- 		}
-		//- 	})
-		//- })
-
-			//- $('#videoPrepage').scroll(function(){
-			//- 	if($(window).scrollTop() > 20 ){
-			//- 		$('html, body').animate({
-			//-         scrollTop: $("#startHomepage").offset().top + offset
-			//-     }, 1000);
-			//- 	}
-			//- })
-
-
-
-
-
-		//- $(document).ready(function(){
-		//- 	$(window).scroll(function(){
-		//- 		$('html, body').animate({
-		//- 			scrollTop: $("#startHomepage").offset().top 
-		//- 			}, 2000);
-		//- 	})
-		//- })
-
-//- $("#videoRow").fadeOut(3000)
-	//-   $(window).scroll(function(){
-	//-   var st = $(window).scrollTop();
-	//-   var timeout = setTimeout(function(){
-	//-     var currentScrollTop = $(window).scrollTop();
-	//-     if(st == currentScrollTop){
-	//-       var yPosInAbsolute = window.innerHeight - 100;
-	//-       $('#goToTop').css({'top': st + yPosInAbsolute, 'right': 400});
-
-	//-       $('#goToTop').show();
-	//-       $('#goToTop').click(function(){
-	//-         $('html,body').stop(true, false).animate({scrollTop: $('#test').offset().top - 50}, 2000);
-	//-         clearTimeout(timeout);
-	//-       });
-	//-     }else{
-	//-       $('#goToTop').hide();
-	//-       clearTimeout(timeout);
-	//-     }
-	//-   }, 2000);
-
-	//- });
-
-
-		//- 	var lastScrollTop = 0;
-		//- 	$(window).scroll(function(){
-		//- 		var currentScrollTop = $(this).scrollTop();
-		//- 		console.log(currentScrollTop)
-		//- 		if (currentScrollTop > lastScrollTop){
-		//- 			// downscroll code
-		//- 			if(currentScrollTop > 100)
-		//- 			$('html, body').animate({
-		//- 			scrollTop: $("#startHomepage").offset().top
-		//- 			}, 2000);	
-		//- 		} else {
-		//- 			$('html, body').animate({
-		//- 			scrollTop: $("#containerPrepage").offset().top
-		//- 			}, 1000);
-		//- 		}
-		//- 		lastScrollTop = currentScrollTop;	
-		//- 	})
-		//- })
-
-//- Math.abs
-
-
-//- function goToByScroll(id){
-//- 			    $('html,body').animate({
-//- 			        scrollTop: $("#"+id).offset().top},
-//- 			        1500);
-//- 				}
-
-			
-		//- 	  
-		//- 	        if (currentScrollTop < 500 ) {
-		//- 	            goToByScroll('startHomepage');
-		//- 	    	} 
-		//- 		} else {
-		//- 	        // upscroll code
-		//- 	        if (currentScrollTop > 500) {
-		//- 	            goToByScroll('containerPrepage');
-		//- 	        else if(currentScrollTop > 800) {
-		//- 	        	goToByScroll('startHomepage')
-		//- 	        	}
-		//- 	    	}
-		//- 	    }
-		//- 	    lastScrollTop = currentScrollTop;
-		//- 	})	
-		//- })
-		
-
