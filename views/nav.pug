@@ -9,7 +9,24 @@ html
 
 
 
-					if(true)
+					if(name)
+						ul(class="nav navbar-nav navbar-right" id="ulNav")
+							li
+								a(class="navA" href="/") Leden
+							li
+								a(class="navA" href="/") Agenda
+							li
+								a(class="navA" href="/") Foto's
+							li
+								a(class="navA" href="/") Maastricht
+							li
+								a(class="navA" href="/") Contact		
+							li
+								a(class="navA" href="/profile") Account_#{name}
+							li
+								a(class="navA" href="/logout") Logout
+
+					else
 						ul(class="nav navbar-nav navbar-right" id="ulNav")
 							li
 								a(class="navA" href="/") Leden
@@ -23,5 +40,3 @@ html
 								a(class="navA" href="/") Contact		
 							li
 								a(class="navA" href="/login") * * * 
-
-		//- div(class="navbarspacing")

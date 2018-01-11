@@ -1,7 +1,5 @@
 
 /* GENERAL CSS*/
-
-
 html, body{
 	padding: 0px;
 	margin: 0px;
@@ -24,6 +22,21 @@ div{
 	margin: 0px;
 	margin: 0px;
   width: 100%;
+}
+
+.containerBackground{
+  position: relative;
+  height: 85%;
+  padding: 0px;
+  display: block;
+  width: auto;
+  /*overflow: hidden;*/
+  height: 85%; 
+  background: url(/images/background/splashwit.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /* NAV BAR*/
@@ -270,8 +283,6 @@ section {
   }
 }*/
 
-
-
 /*LEDEN*/
 #boomtopImg{
   height: 55%;
@@ -281,34 +292,26 @@ section {
 }
 
 /*LOGIN*/
-#containerLogin{
-  position: relative;
-  height: 85%;
-  padding: 0px;
-  display: block;
-  width: auto;
-  /*overflow: hidden;*/
-  height: 85%; 
-  background: url(/images/background/splashwit.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#childBgLogin{
+.bgMarginrow{
   margin-top: 30%;
 }
 
-
-
-
-#loginForm, #loginForm input{
+#signupForm, #signupForm input, #loginForm, #loginForm input{
   text-align: center;
 }
 
 #submitLogin{
   width: 100%;
+}
+
+/*PROFILE*/
+#titleProfilepage{
+  text-align: center;
+  text-decoration: underline;
+}
+
+.normalBGMarginrow{
+  margin-top: 15%;
 }
 
 
