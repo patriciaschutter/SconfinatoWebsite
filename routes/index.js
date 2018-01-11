@@ -1,9 +1,12 @@
 module.exports = (app) => {
 	app.get('/', (req, res) => {
-		res.render('index')
-	})
-
-	app.get('/homepage', (req, res) => {
-		res.render('homepage')
+		if(req.session.user){
+			res.render('index', {
+				name: req.session.user.name})
+		}
+		else {
+			res.render('index')
+		}
 	})
 }
+

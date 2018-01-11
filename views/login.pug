@@ -1,0 +1,52 @@
+html
+	head
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+		link(rel="stylesheet" type="text/css" href="src/sconfiCustom.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(charset="utf-8")
+			
+	body
+		include nav
+		
+		div(class="containerBackground container-fluid")
+					div(class="bgMarginrow row")
+						div(class="col-sm-4 col-sm-offset-4")
+							h4 Login voor Preasidium en OLV bestuur
+							form(class="input-group input-group-sm" method="POST" action="/loginRoute" id="loginForm")
+								input(class="form-control" id="loginEmail" name="email" type="text" placeholder="Email*" required)
+								input(class="form-control" id="loginPassword" name="password" type="password" placeholder="Password*" required)
+								input(class="submitelement" id="submitLogin" type="submit" value="Login")
+							br
+							if(errorLogin)
+								h5(class="errorText") #{errorLogin}
+								
+
+						div(class="col-sm-4 col-sm-offset-4")
+							form(class="input-group input-group-sm" method="POST" action="/signupRoute" id="signupForm")
+								input(class="form-control" id="signupName" name="name" type="text" placeholder="Naam*" required)
+								input(class="form-control" id="signupEmail" name="email" type="text" placeholder="Email*" required)
+								input(class="form-control" id="signupPassword" name="password" type="password" placeholder="Password*" required)
+								input(class="form-control" id="passwordCheck" type="password" placeholder="Confirm password*" required)
+
+
+								input(class="submitelement" id="submitLogin" type="submit" value="Create user")
+		include footer
+
+	
+	script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
+	script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
+
+	script.
+		$(document).ready(function() {
+			$("form").submit(function(event) {
+				let username = $("#username").val()
+				let pass = $("#signupPassword").val()
+				let passCheck = $("#passwordCheck").val()	
+				if(pass !== passCheck) {
+					event.preventDefault()
+					alert("PASSWORDS DO NOT MATCH")
+				}
+			}) 
+		})
+
