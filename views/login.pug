@@ -10,26 +10,27 @@ html
 		include nav
 		
 		div(class="containerBackground container-fluid")
-					div(class="bgMarginrow row")
+					div(class="normalBGMarginrow row")
 						div(class="col-sm-4 col-sm-offset-4")
-							h4 Login voor Preasidium en OLV bestuur
-							form(class="input-group input-group-sm" method="POST" action="/loginRoute" id="loginForm")
-								input(class="form-control" id="loginEmail" name="email" type="text" placeholder="Email*" required)
-								input(class="form-control" id="loginPassword" name="password" type="password" placeholder="Password*" required)
+							h4(class="titleSmall") Voor Preasidium en OLV bestuur
+							form(method="POST" action="/loginRoute" id="loginForm")
+								div(class="input-group input-group-sm")
+									span(class="input-group-addon") #[i(class="glyphicon glyphicon-envelope")]
+									input(class="form-control" id="loginEmail" name="email" type="email" placeholder="emailadress" required)
+								div(class="input-group input-group-sm")
+									span(class="input-group-addon") #[i(class="glyphicon glyphicon-lock")]	
+									input(class="form-control" id="loginPassword" name="password" type="password" placeholder="wachtwoord" required)
 								input(class="submitelement" id="submitLogin" type="submit" value="Login")
 							br
 							if(errorLogin)
 								h5(class="errorText") #{errorLogin}
-								
-
+		
 						div(class="col-sm-4 col-sm-offset-4")
 							form(class="input-group input-group-sm" method="POST" action="/signupRoute" id="signupForm")
-								input(class="form-control" id="signupName" name="name" type="text" placeholder="Naam*" required)
-								input(class="form-control" id="signupEmail" name="email" type="text" placeholder="Email*" required)
-								input(class="form-control" id="signupPassword" name="password" type="password" placeholder="Password*" required)
-								input(class="form-control" id="passwordCheck" type="password" placeholder="Confirm password*" required)
-
-
+								input(class="form-control" id="signupName" name="name" type="text" placeholder="Naam" required)
+								input(class="form-control" id="signupEmail" name="email" type="email" placeholder="Email" required)
+								input(class="form-control" id="signupPassword" name="password" type="password" placeholder="Password" required)
+								input(class="form-control" id="passwordCheck" type="password" placeholder="Confirm password" required)
 								input(class="submitelement" id="submitLogin" type="submit" value="Create user")
 		include footer
 
@@ -49,4 +50,5 @@ html
 				}
 			}) 
 		})
+
 

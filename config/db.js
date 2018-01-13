@@ -19,11 +19,11 @@ db.sequelize = sequelize;
 
 //Models/tables
 db.users = require('../models/users.js')(sequelize, Sequelize)
-// db.lichtingen = require('../models/lichtingen.js')(sequelize, Sequelize)
-// db.leden = require('../models/leden.js')(sequelize, Sequelize)
+db.batches = require('../models/batches.js')(sequelize, Sequelize)
+db.members = require('../models/members.js')(sequelize, Sequelize)
 
 //Relations
-// db.clothes.belongsTo(db.users)
-// db.users.hasMany(db.clothes)
+db.members.belongsTo(db.batches)
+db.batches.hasMany(db.members)
 
 module.exports = db

@@ -1,26 +1,25 @@
-
 /* GENERAL CSS*/
 html, body{
-	padding: 0px;
-	margin: 0px;
-	height: 100%;
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
 }
 
 div{
-	padding: 0px;
-	margin: 0px;
-	width: 100%;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
 }
 
 .container{
-	padding: 0;
-	margin: 0;
-	width: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 .row{
-	margin: 0px;
-	margin: 0px;
+  margin: 0px;
+  margin: 0px;
   width: 100%;
 }
 
@@ -41,8 +40,8 @@ div{
 
 /* NAV BAR*/
 .navbarspacing{
-	height: 10%;
-	background-color: #2a344c;
+  height: 10%;
+  background-color: #2a344c;
 }
 
 .navbar-default{
@@ -135,8 +134,8 @@ div{
 }
 
 #divPrepageVideo{
-	padding: 0px;
-	overflow: hidden;
+  padding: 0px;
+  overflow: hidden;
   position: relative;
   display: inline-block;
   height: 100%;
@@ -146,12 +145,12 @@ div{
 
 
 #videoPrepage{
-	width: 100%;
-	height: 100%;
-	
-	right: 0;
-	top: 0;
-	/*opacity: 0.9;*/
+  width: 100%;
+  height: 100%;
+  
+  right: 0;
+  top: 0;
+  /*opacity: 0.9;*/
   background-color: #000;
   overflow: hidden;
   /*z-index: 1;*/
@@ -200,25 +199,25 @@ section {
 
 @-webkit-keyframes sdb04 {
   0% {
-	-webkit-transform: rotate(-45deg) translate(0, 0);
+  -webkit-transform: rotate(-45deg) translate(0, 0);
   }
   20% {
-	-webkit-transform: rotate(-45deg) translate(-10px, 10px);
+  -webkit-transform: rotate(-45deg) translate(-10px, 10px);
   }
   40% {
-	-webkit-transform: rotate(-45deg) translate(0, 0);
+  -webkit-transform: rotate(-45deg) translate(0, 0);
   }
 }
 
 @keyframes sdb04 {
   0% {
-	transform: rotate(-45deg) translate(0, 0);
+  transform: rotate(-45deg) translate(0, 0);
   }
   20% {
-	transform: rotate(-45deg) translate(-10px, 10px);
+  transform: rotate(-45deg) translate(-10px, 10px);
   }
   40% {
-	transform: rotate(-45deg) translate(0, 0);
+  transform: rotate(-45deg) translate(0, 0);
   }
 }
 
@@ -238,8 +237,6 @@ section {
   /*opacity: 0.5;*/
 }
 
-<<<<<<< HEAD
-=======
 #h1HOmepage{
   font-size: 900%;
   color: #2a344c;
@@ -249,7 +246,6 @@ section {
   margin-bottom: 1%;
   font-weight: bold;
 }
->>>>>>> prepage
 
 .h2HOmepage{
   font-size: 220%;
@@ -307,6 +303,10 @@ section {
   width: 100%;
 }
 
+.titleSmall{
+  text-align: center;
+}
+
 /*PROFILE*/
 #titleProfilepage{
   text-align: center;
@@ -317,5 +317,58 @@ section {
   margin-top: 15%;
 }
 
+.btnDiv button{
+  width: 100%;
+}
 
+/*ADD LICHTING/BATCH*/
+#batchForm{
+background-color: rgba(42, 52, 76, 0.3);
+}
+
+#marginH2smaller{
+  margin-top: 0px;
+  margin-bottom: 2%;
+  text-shadow: none;
+  color: #FFF;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  cursor: pointer; /* "hand" cursor */
+  text-align: center;
+}
+
+#inputGebDatum {
+      position: relative;
+      width: 150px; height: 20px;
+      color: white;
+}
+#inputGebDatum:before {
+  position: absolute;
+  top: 3px; left: 3px;
+  content: attr(data-date);
+  display: inline-block;
+  color: black;
+}
+
+#inputGebDatum::-webkit-datetime-edit, #inputGebDatum::-webkit-inner-spin-button, #inputGebDatum::-webkit-clear-button {
+  display: none;
+}
+
+#inputGebDatum::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  color: black;
+  opacity: 1;
+}
 

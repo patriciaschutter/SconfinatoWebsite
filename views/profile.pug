@@ -13,9 +13,32 @@ html
             div(class="normalBGMarginrow row")
                 div(class="col-sm-12")
                     h1(id="titleProfilepage") Account #{name}
+            br
+            div(class="row")
+                div(class="col-sm-3 col-sm-offset-2 btnDiv")
+                    div(class="dropdown")
+                        button(id="btnLeden" type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown") UPDATE LEDEN
+                        span(class="caret")
+                        ul(class="dropdown-menu" aria-labelledby="btnLeden" role="menu")
+                            li(role="presentation")
+                                a(href="/addBatchPage" role="menuitem") Nieuwe lichting
+                            li(role="presentation")
+                                a(href="/updateLeden" role="menuitem") Update info leden
+                            li(role="presentation")
+                                a(href="/updateOprichters" role="menuitem") Update info oprichters
+
+            div(class="row")
+                div(class="col-sm-3 col-sm-offset-2 btnDiv")
+                    button(id="btnPreasidium" type="button" class="btn btn-default btn-lg") UPDATE PREASIDIUM
+            div(class="row")
+                div(class="col-sm-3 col-sm-offset-2 btnDiv")
+                    button(id="btnEvents" type="button" class="btn btn-default btn-lg") UPDATE LATEST EVENT
+            div(class="row")
+                div(class="col-sm-3 col-sm-offset-2 btnDiv")
+                    button(id="btnMaastricht" type="button" class="btn btn-default btn-lg") UPDATE MAASTRICHT
 
 
-    
+
 
         include footer  
     script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")

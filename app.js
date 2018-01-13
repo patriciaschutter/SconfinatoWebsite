@@ -1,3 +1,4 @@
+
 const	express = require("express"),
 		app = express(),
 		path = require("path"),
@@ -11,7 +12,7 @@ const	express = require("express"),
 		dotenv = require("dotenv")
 		storage = multer.diskStorage({
 		  	destination: function (req, file, cb) {
-		  		cb(null, 'public/images/profielfoto_leden')
+		  		cb(null, 'public/images/uploaded_db/foto_lichting')
 			},
 			filename: function (req, file, cb) {
 				cb(null, Date.now() + path.extname(file.originalname))
@@ -48,6 +49,8 @@ require("./routes/index.js")(app)
 require("./routes/signup.js")(app, db, bcrypt)
 require("./routes/login_logout.js")(app, db, bcrypt)
 require("./routes/profile.js")(app, db)
+require("./routes/addBatch.js")(app, db, upload, path, fs)
+
 
 db.sequelize.sync({ 
     force: false, // CHANGE THIS TO FALSE WHEN HOSTING - WILL OTHERWISE DELETE ALL DATA WHEN RESTARTING THE APP ! ! ! ! ! ! ! ! ! !! ! ! ! ! ! ! !! ! 
