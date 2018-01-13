@@ -10,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
             unique: false,
             allowNull: false
         },
-        date_birth: {
-            type: DataTypes.DATEONLY,
-            unique: false,
-            allowNull: true
-        },
+        // date_birth: {
+        //     type: DataTypes.DATEONLY,
+        //     unique: false,
+        //     allowNull: true
+        // },
         linkedin: {
             type: DataTypes.STRING,
             unique: true,

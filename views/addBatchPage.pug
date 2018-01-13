@@ -15,35 +15,7 @@ html
 					form(id="batchForm" method="POST" class="form-horizontal" action="/batchRoute" enctype="multipart/form-data")
 						br
 						h2(class="h2HOmepage" id="marginH2smaller") LICHTING #{newBatchNR} 
-						br
-						div(class="form-group")
-							div(class="col-sm-2 col-sm-offset-1")
-								input(type="text" id="inputFN" class="form-control" name="member[0].FN" placeholder="Voornaam" required)
-							div(class="col-sm-2")
-								input(type="text" id="inputLN" class="form-control" name="member[0].LN" placeholder="Achternaam" required)
-							div(class="col-sm-3")
-								input(type="url" id="inputLinkedIn" class="form-control" name="member[0].linkedin" pattern="https?://.+" title="Include http://" placeholder="linkedin" required)
-							div(class="col-sm-3")
-								input(type="file" id="file" class="form-control inputfile" accept=".jpg, .jpeg, .png" name="member[0].file" required)
-								label(for="file" class="form-control") Upload profielfoto
-							div(class="col-sm-1")
-								button(type="button" class="btn btn-default addMemberButton") #[i(class="glyphicon glyphicon-plus")]
-
-						//- The template for adding new field
-						div(class="form-group hide" id="memberTemplate")
-							div(class="col-sm-2 col-sm-offset-1")
-								input(type="text" class="form-control" name="FN" placeholder="Voornaam" required)
-							div(class="col-sm-2")
-								input(type="text" class="form-control" name="LN" placeholder="Achternaam" required)
-							div(class="col-sm-3")
-								input(type="url" class="form-control" name="linkedin" pattern="https?://.+" title="Include http://" placeholder="linkedin" required)
-							div(class="col-sm-3")
-								input(type="file" id="file" class="form-control inputfile" accept=".jpg, .jpeg, .png" name="file" required)
-								label(for="file" class="form-control") Upload profielfoto
-							div(class="col-sm-1")
-								button(type="button" class="btn btn-default removeMemberButton") #[i(class="glyphicon glyphicon-minus")]
-						br
-						br
+						hr
 
 						div(class="form-group")
 							div(class="col-sm-3 col-sm-offset-2")
@@ -51,8 +23,48 @@ html
 									span(class="input-group-addon") Inauguratie datum
 									input(id="inaugurationDate" type="date" data-date="" data-date-format="MMM YYYY" class="form-control" name="inauguration" required)
 							div(class="col-sm-3 col-sm-offset-2")
-									input(type="file" name="file" id="file" class="form-control inputfile" accept=".jpg, .jpeg, .png" required)
-									label(for="file" class="form-control") Upload lichtingsfoto
+									input(type="file" name="batch_photo" id="batch_photo" class="form-control inputfile" accept=".jpg, .jpeg, .png" required)
+									label(for="batch_photo" class="form-control") Upload lichtingsfoto
+
+									//- to give batchnr to db for inserting
+									input(type="hidden" name="batch" value=`${newBatchNR}`)
+						br
+						br
+
+						div(class="form-group")
+							div(class="col-sm-1")
+								h2(id="starBatchpage") *
+							div(class="col-sm-2")
+								input(type="text"  class="form-control" name="member[0][FN]" placeholder="Voornaam" required)
+							div(class="col-sm-2")
+								input(type="text"  class="form-control" name="member[0][LN]" placeholder="Achternaam" required)
+							div(class="col-sm-3")
+								input(type="url"  class="form-control" name="member[0][linkedin]" pattern="https?://.+" title="Include http://" placeholder="linkedin link" required)
+							//- div(class="col-sm-3")
+							//- 	input(type="file" id="pf_photo" class="form-control inputfile" accept=".jpg, .jpeg, .png" name="member[0]")
+							//- 	label(for="pf_photo" class="form-control") Upload profielfoto
+							div(class="col-sm-1")
+								button(type="button" class="btn btn-default addMemberButton") #[i(class="glyphicon glyphicon-plus")]
+
+						//- The template for adding new field
+						div(class="form-group hide" id="memberTemplate")
+							div(class="col-sm-1")
+								h2(id="starBatchpage") *
+							div(class="col-sm-2")
+								input(type="text" class="form-control" id="FN" placeholder="Voornaam")
+							div(class="col-sm-2")
+								input(type="text" id="LN" class="form-control" placeholder="Achternaam")
+							div(class="col-sm-3")
+								input(type="url"  class="form-control" id="linkedin" pattern="https?://.+" title="Include http://" placeholder="linkedin link")
+							//- div(class="col-sm-3")
+							//- 	input(type="file" id="pf_photo" class="form-control inputfile" accept=".jpg, .jpeg, .png" name="member")
+							//- 	label(for="pf_photo" class="form-control") Upload profielfoto
+							div(class="col-sm-1")
+								button(type="button" class="btn btn-default removeMemberButton") #[i(class="glyphicon glyphicon-minus")]
+						br
+						br
+
+						
 
 						div(class="form-group")
 							div(class="col-sm-2 col-sm-offset-5")
@@ -85,20 +97,25 @@ html
 
 					// Update the name attributes
 					$clone
-						.find('[name="FN"]').attr('name', 'member[' + memberIndex + '].FN').end()
-						.find('[name="LN"]').attr('name', 'member[' + memberIndex + '].LN').end()
-						.find('[name="linkedin"]').attr('name', 'member[' + memberIndex + '].linkedin').end()
-						.find('[name="file"]').attr('name', 'member[' + memberIndex + '].file').end()
+						.find('[id="FN"]').attr('name', 'member[' + memberIndex + '][FN]').end()
+						.find('[id="LN"]').attr('name', 'member[' + memberIndex + '][LN]').end()
+						.find('[id="linkedin"]').attr('name', 'member[' + memberIndex + '][linkedin]').end()
+						//- .find('[id="pf_photo"]').attr('name', 'member[' + memberIndex + ']').end()
 						;
 				})
 
 				// Remove button click handler
 				$('#batchForm').on('click', '.removeMemberButton', function() {
-					memberIndex--;
 					var $row  = $(this).parents('.form-group'),
 						index = $row.attr('data-book-index');
 					// Remove element containing the fields
 					$row.remove();
 				})
-		}) // closing tag document.ready
+
+			
+
+
+
+
+			}) // closing tag document.ready
 			

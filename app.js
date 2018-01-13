@@ -12,14 +12,16 @@ const	express = require("express"),
 		dotenv = require("dotenv")
 		storage = multer.diskStorage({
 		  	destination: function (req, file, cb) {
-		  		cb(null, 'public/images/uploaded_db/foto_lichting')
+		  		cb(null, 'public/images/uploaded_db')
 			},
 			filename: function (req, file, cb) {
 				cb(null, Date.now() + path.extname(file.originalname))
 			}
 		}),
-		upload = multer({ storage: storage }),
-	  // upload = multer({ dest: 'public/images/uploaditem' }),
+		upload = multer({ 
+			storage: storage,
+			limits: { fileSize: 10000000 } // 10MB
+		}),
 		db = require(path.resolve( __dirname, "./config/db.js" )),
 		env = require(path.resolve( __dirname, "./config/.env.js" )),
 
