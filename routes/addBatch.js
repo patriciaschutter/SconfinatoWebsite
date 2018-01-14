@@ -17,54 +17,47 @@ module.exports = (app, db, upload, path, fs) => {
         }
     }) // closing app.get('/addLichtingPage')
 
-    app.post('/batchRoute', upload.fields([{ name: 'batch_photo', maxCount: 1}, { name: 'member[]'}]), function(req, res){
-        console.log("req.body.member = ", req.body.member)
-        console.log("req.body.member[0] = ", req.body.member[0])
-        console.log("req.body.member[0].FN = ", req.body.member[0].FN)
-        console.log("req.body.member.FN = ", req.body.member.FN)
-        // console.log("req.files = ", req.files)
-        // console.log("parsed batch", parseInt(req.body.batch))
-        // console.log("req.body.member = ", req.body.member)
-
-    	// if(req.session.user){
-    	// 	db.batches.create({
-    	// 		batch: parseInt(req.body.batch),
-    	// 		inauguration: req.body.inauguration,
-    	// 		batch_photo: req.files.batch_photo.filename
-    	// 	})
-    	// 	.then( () => {
-     //            for (var item in req.body.member){
-     //                console.log(item.FN)
-     //            }
-     //            console.log("yes inserted in members" )
-     //        })
-     //        .then(()=>{
-                res.send("inserted in both databases")
-                // res.render('addLichting', {
-                //         name: req.session.user.name,
-                //         batchCreated: yes
-                //     })
-     //        })
-     //       .catch((e) => {
-     //            console.log(e)
-     //        })
-    	// } else {
-     //        res.render("login")
-     //    }
+    app.post('/batchRoute', upload.single("batch_photo"), function(req, res){
+        console.log("CONSOLE.LOG REQ.FILE", req.file)
+    	if(req.session.user){
+    		db.batches.create({
+    			batch: parseInt(req.body.batch),
+    			inauguration: req.body.inauguration,
+    			batch_photo: req.file.filename
+    		})
+            .then(()=>{
+                db.batches.findAll({
+                    where: {
+                        batch: parseInt(req.body.batch)
+                    }
+                })
+                .then((result) =>{
+                    console.log(result)
+                    res.render('addBatchPage', {
+                            name: req.session.user.name,
+                            batchNR: req.body.batch,
+                            batchCreated: 'yes',
+                            batches: result
+                        })
+                })
+            })
+           .catch((e) => {
+                console.log(e)
+            })
+    	} else {
+            res.render("login")
+        }
     }) // closing app.post('/batchRoute')
 
 
+    app.post('/memberRoute', upload.fields([{name: "pf_photo[]"}]), function(req, res){
+        console.log("req.body.member=", req.body.member)
+        console.log("CONSOLELOG REQ.FILEs=", req.files)
+
+        res.send('hoiiii')
+
+    }) // closing app.post('/batchRoute')
+
 } // closing modele.export
-
-// var string1 = "";
-// var object1 = {a: 1, b: 2, c: 3};
-
-// for (var property1 in object1) {
-//   string1 = string1 + object1[property1];
-// }
-
-// console.log(string1);
-// // expected output: "123"
-
 
 

@@ -9,67 +9,84 @@ html
 	body
 		include nav
 		
-		div(class="containerBackground container-fluid")
+		div(class="containerBackground container-fluid" id="containerAddBatchPage" )
 			div(class="normalBGMarginrow row")
 				div(class="col-sm-10 col-sm-offset-1")
-					form(id="batchForm" method="POST" class="form-horizontal" action="/batchRoute" enctype="multipart/form-data")
-						br
-						h2(class="h2HOmepage" id="marginH2smaller") LICHTING #{newBatchNR} 
-						hr
+					br
+					if(newBatchNR)
+						form(id="BatchForm" method="POST" class="form-horizontal formBackground" action="/batchRoute" enctype="multipart/form-data")
+							br
+							h2(class="h2HOmepage" id="marginH2smaller") LICHTING #{newBatchNR} 
+							hr
+							div(class="form-group")
+								div(class="col-sm-3 col-sm-offset-2")
+									div(class="input-group")
+										span(class="input-group-addon") Inauguratie datum
+										input(id="inaugurationDate" type="date" data-date="" data-date-format="MMM YYYY" class="form-control" name="inauguration" required)
+								div(class="col-sm-3 col-sm-offset-2")
+										input(type="file" name="batch_photo" id="batch_photo" class="form-control inputfile" accept=".jpg, .jpeg, .png" required)
+										label(for="batch_photo" class="form-control") Upload lichtingsfoto
 
-						div(class="form-group")
-							div(class="col-sm-3 col-sm-offset-2")
-								div(class="input-group")
-									span(class="input-group-addon") Inauguratie datum
-									input(id="inaugurationDate" type="date" data-date="" data-date-format="MMM YYYY" class="form-control" name="inauguration" required)
-							div(class="col-sm-3 col-sm-offset-2")
-									input(type="file" name="batch_photo" id="batch_photo" class="form-control inputfile" accept=".jpg, .jpeg, .png" required)
-									label(for="batch_photo" class="form-control") Upload lichtingsfoto
-
-									//- to give batchnr to db for inserting
-									input(type="hidden" name="batch" value=`${newBatchNR}`)
-						br
-						br
-
-						div(class="form-group")
-							div(class="col-sm-1")
-								h2(id="starBatchpage") *
-							div(class="col-sm-2")
-								input(type="text"  class="form-control" name="member[0][FN]" placeholder="Voornaam" required)
-							div(class="col-sm-2")
-								input(type="text"  class="form-control" name="member[0][LN]" placeholder="Achternaam" required)
-							div(class="col-sm-3")
-								input(type="url"  class="form-control" name="member[0][linkedin]" pattern="https?://.+" title="Include http://" placeholder="linkedin link" required)
-							//- div(class="col-sm-3")
-							//- 	input(type="file" id="pf_photo" class="form-control inputfile" accept=".jpg, .jpeg, .png" name="member[0]")
-							//- 	label(for="pf_photo" class="form-control") Upload profielfoto
-							div(class="col-sm-1")
-								button(type="button" class="btn btn-default addMemberButton") #[i(class="glyphicon glyphicon-plus")]
-
-						//- The template for adding new field
-						div(class="form-group hide" id="memberTemplate")
-							div(class="col-sm-1")
-								h2(id="starBatchpage") *
-							div(class="col-sm-2")
-								input(type="text" class="form-control" id="FN" placeholder="Voornaam")
-							div(class="col-sm-2")
-								input(type="text" id="LN" class="form-control" placeholder="Achternaam")
-							div(class="col-sm-3")
-								input(type="url"  class="form-control" id="linkedin" pattern="https?://.+" title="Include http://" placeholder="linkedin link")
-							//- div(class="col-sm-3")
-							//- 	input(type="file" id="pf_photo" class="form-control inputfile" accept=".jpg, .jpeg, .png" name="member")
-							//- 	label(for="pf_photo" class="form-control") Upload profielfoto
-							div(class="col-sm-1")
-								button(type="button" class="btn btn-default removeMemberButton") #[i(class="glyphicon glyphicon-minus")]
-						br
-						br
+										//- to give batchnr to db for inserting
+										input(type="hidden" name="batch" value=`${newBatchNR}`)
+							div(class="form-group")
+								div(class="col-sm-2 col-sm-offset-5")
+									button(id="submitBatch" type="submit" class="btn btn-dark btn-lg sconfi-btn") Voeg lichting toe
+							br
 
 						
+					if(batchCreated)
+						form(id="memberForm" method="POST" class="form-horizontal formBackground" action="/memberRoute" enctype="multipart/form-data" )
+							br
+							h2(class="h2HOmepage" id="marginH2smaller") LICHTING #{batchNR} 
+							hr
+							each item in batches
+								div(class="form-group")
+									div(class="col-sm-4 col-sm-offset-4")
+										img.batchimage(src='images/uploaded_db/' + item.dataValues.batch_photo)
+										div(class="input-group")
+											span(class="input-group-addon") Inauguratie datum
+											span(class="form-control") #{item.dataValues.inauguration}
+										hr
+								h3.h3titleFormMiddle Nieuwe Sconfi's:
+								br
 
-						div(class="form-group")
-							div(class="col-sm-2 col-sm-offset-5")
-								button(id="btnAddBatch" type="submit" class="btn btn-dark btn-lg") Voeg lichting toe
-						br
+								div(class="form-group")
+									div(class="col-sm-1")
+										h2(id="starBatchpage") *
+									div(class="col-sm-2")
+										input(type="text"  class="form-control" name="member[0][FN]" placeholder="Voornaam" required)
+									div(class="col-sm-2")
+										input(type="text"  class="form-control" name="member[0][LN]" placeholder="Achternaam" required)
+									div(class="col-sm-3")
+										input(type="url"  class="form-control" name="member[0][linkedin]" pattern="https?://.+" title="Include http://" placeholder="linkedin link" required)
+									div(class="col-sm-3")
+										input(type="file" class="form-control inputfile" accept=".jpg, .jpeg, .png" name="pf_photo[]")
+										label(for="pf_photo" class="form-control") Upload profielfoto
+									div(class="col-sm-1")
+										button(type="button" class="btn btn-default addMemberButton") #[i(class="glyphicon glyphicon-plus")]
+
+								//- The template for adding new field
+								div(class="form-group hide" id="memberTemplate")
+									div(class="col-sm-1")
+										h2(id="starBatchpage") *
+									div(class="col-sm-2")
+										input(type="text" class="form-control" id="FN" placeholder="Voornaam")
+									div(class="col-sm-2")
+										input(type="text" id="LN" class="form-control" placeholder="Achternaam")
+									div(class="col-sm-3")
+										input(type="url"  class="form-control" id="linkedin" pattern="https?://.+" title="Include http://" placeholder="linkedin link")
+									div(class="col-sm-3")
+										input(type="file" id="pf_photo" class="form-control inputfile" accept=".jpg, .jpeg, .png")
+										label(for="pf_photo" class="form-control") Upload profielfoto
+									div(class="col-sm-1")
+										button(type="button" class="btn btn-default removeMemberButton") #[i(class="glyphicon glyphicon-minus")]
+								br
+								br
+								div(class="form-group")
+									div(class="col-sm-2 col-sm-offset-5")
+										button(id="submitMembers" type="submit" class="btn btn-dark btn-lg sconfi-btn") Voeg lichting toe
+								br
 
 
 		include footer  
@@ -85,7 +102,7 @@ html
 
 
 			var memberIndex = 0;
-				$('#batchForm').on('click', '.addMemberButton', function() {
+				$('#memberForm').on('click', '.addMemberButton', function() {
 					memberIndex++;
 					var $template = $('#memberTemplate'),
 						$clone    = $template
@@ -100,12 +117,12 @@ html
 						.find('[id="FN"]').attr('name', 'member[' + memberIndex + '][FN]').end()
 						.find('[id="LN"]').attr('name', 'member[' + memberIndex + '][LN]').end()
 						.find('[id="linkedin"]').attr('name', 'member[' + memberIndex + '][linkedin]').end()
-						//- .find('[id="pf_photo"]').attr('name', 'member[' + memberIndex + ']').end()
+						.find('[id="pf_photo"]').attr('name', "pf_photo[]").end()
 						;
 				})
 
 				// Remove button click handler
-				$('#batchForm').on('click', '.removeMemberButton', function() {
+				$('#memberForm').on('click', '.removeMemberButton', function() {
 					var $row  = $(this).parents('.form-group'),
 						index = $row.attr('data-book-index');
 					// Remove element containing the fields
