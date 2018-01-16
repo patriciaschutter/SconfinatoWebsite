@@ -1,0 +1,40 @@
+html
+	head
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+		link(rel="stylesheet" type="text/css" href="src/sconfiCustom.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(charset="utf-8")
+			
+	body
+		include nav
+		
+		div(class="containerBackground container-fluid" id="containerAddBatchPage" )
+			div(class="normalBGMarginrow row")
+				div(class="col-sm-10 col-sm-offset-1")
+					form(id="batchForm" method="POST" class="form-horizontal formBackground" action="/batchRoute" enctype="multipart/form-data")
+						br
+						h2(class="h2Center" id="h2CreateBatch") LICHTING #{batchNr} 
+						hr
+						div(class="form-group")
+							div(class="col-sm-3 col-sm-offset-2")
+								div(class="input-group")
+									span(class="input-group-addon") Inauguratie datum
+									input(id="inaugurationDate" type="date" data-date="" data-date-format="MMM YYYY" class="form-control" name="inauguration" required)
+							div(class="col-sm-3 col-sm-offset-2")
+									input(type="file" name="batch_photo" id="batch_photo" class="form-control inputfile" accept=".jpg, .jpeg, .png" required)
+									label(for="batch_photo" class="form-control") Upload lichtingsfoto
+
+									//- to give batchnr to db for inserting
+									input(type="hidden" name="batch" value=`${batchNr}`)
+						div(class="form-group")
+							div(class="col-sm-2 col-sm-offset-5")
+								button(id="submitBatch" type="submit" class="btn btn-dark btn-lg sconfi-btn") Voeg lichting toe					
+
+	script.
+		$(document).ready(function() {
+			$('#batchForm').hide()
+			$('#batchForm').fadeIn(1500)
+
+		}) // closing tag document.ready
+			

@@ -1,4 +1,3 @@
-
 const	express = require("express"),
 		app = express(),
 		path = require("path"),
@@ -43,16 +42,16 @@ app.use(session({
 //ROUTES
 require("./routes/index.js")(app)
 
-// require("./routes/leden.js")(app)
-// require("./routes/agenda.js")(app)
+require("./routes/leden.js")(app, db)
+require("./routes/agenda.js")(app)
 // require("./routes/maastricht.js")(app)
 // require("./routes/contact.js")(app)
 
 require("./routes/signup.js")(app, db, bcrypt)
 require("./routes/login_logout.js")(app, db, bcrypt)
 require("./routes/profile.js")(app, db)
-require("./routes/addBatch.js")(app, db, upload, path, fs)
-
+require("./routes/createBatch.js")(app, db, upload, path, fs)
+require("./routes/createMembers.js")(app, db, upload, path, fs)
 
 db.sequelize.sync({ 
     force: false, // CHANGE THIS TO FALSE WHEN HOSTING - WILL OTHERWISE DELETE ALL DATA WHEN RESTARTING THE APP ! ! ! ! ! ! ! ! ! !! ! ! ! ! ! ! !! ! 

@@ -68,7 +68,7 @@ div{
 
 #nav-container{
   height:100%;
-  background: rgba(255,255,255, 0.5);
+  background: rgba(253, 253, 254, 0.75);
   border: solid 1px white;
 }
 
@@ -253,7 +253,7 @@ section {
   font-weight: bold;
 }
 
-.h2HOmepage{
+.h2Center{
   font-size: 220%;
   color: #2a344c;
   text-shadow: 10px 10px 10px #FFFFFF;
@@ -265,9 +265,14 @@ section {
 }
 
 #h2H0mepageRight{
-  text-align: center;
   margin-top: 0px;
-  font-size: 175%;
+}
+
+
+#h2CreateBatch{
+  margin-top: 3%;
+  margin-bottom: 5%;
+  font-size: 200%;
   text-shadow: 20px 20px 20px #FFFFFF;
 }
 
@@ -293,9 +298,23 @@ section {
   height: 55%;
   width: 90%;
   padding-left: 10%;
-
 }
 
+.profilePhoto{
+  /*max-width: 20px;*/
+  height: 50%;
+}
+
+.memberFrame{
+  padding: 0px;
+  height: 20%;
+}
+.memberColumn{
+  padding: 0px;
+  margin: 0px;
+  max-width: 100%;
+  overflow: hidden;
+}
 /*LOGIN*/
 .bgMarginrow{
   margin-top: 30%;
@@ -316,14 +335,15 @@ section {
 /*PROFILE*/
 #titleProfilepage{
   text-align: center;
-  text-decoration: underline;
+  
+  background-color: #f5f2f18a;
 }
 
 .normalBGMarginrow{
   margin-top: 15%;
 }
 
-.btnDiv button{
+.btnDiv a{
   width: 100%;
 }
 
@@ -365,12 +385,12 @@ border: solid 1px #2a344c;;
 }
 
 .inputfile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
+  width: 100%;
+  height: 34px;
+/*  opacity: 0;*/
   overflow: hidden;
   position: absolute;
-  z-index: -1;
+ /* z-index: -1;*/
 }
 
 .inputfile + label {
@@ -402,4 +422,5 @@ border: solid 1px #2a344c;;
   color: black;
   opacity: 1;
 }
+
 

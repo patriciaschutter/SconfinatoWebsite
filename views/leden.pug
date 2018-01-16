@@ -10,9 +10,38 @@ html
 		include nav
 		
 		div(class="container-fluid")
-			div(class="row")
+			div(class="normalBGMarginrow row")
 				div(class="col-sm-12")
+					h3(class="h3titleFormMiddle") Leden 
+		
 					img(src="/images/leden/boomtop.png" id="boomtopImg")
 					h1(id="quoteLeden") 
 
+
+					<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+
+					<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/patricia-schutter-56381144" data-format="hover" data-related="false"></script>
+
+					<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/patricia-borgers-8775a674/" data-format="hover" data-related="false"></script>
+
+				div(class="row")
+					each batch in result
+						div(class="col-sm-6 memberFrame")
+							h1(id= `${JSON.stringify(batch)}`) #{batch.dataValues.batch}
+							div(class="row")
+								each member in batch.members
+									div(class="col-sm-2 memberColumn")
+										img.profilePhoto(src="images/uploaded_db/"+member.pf_photo)
+										h6(id= `${member}`) #{member.first_name} #{member.last_name}<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/patricia-schutter-56381144" data-format="hover" data-related="false"></script>
+								
+
+
+
+
+		
 		include footer
+
+	script.
+
+
+

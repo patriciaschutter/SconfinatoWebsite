@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
     var Batch = sequelize.define('batches', {
         batch: {
             type: DataTypes.INTEGER,
-            unique: true,
+            unique: false,
             allowNull: false
         },
         inauguration: {

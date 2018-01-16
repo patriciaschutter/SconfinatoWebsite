@@ -6,7 +6,8 @@ const sequelize = new Sequelize(env.DATABASE_NAME, env.DATABASE_USERNAME, env.DA
   dialect: env.DATABASE_DIALECT,
   port: env.PORT,
   define: {
-    underscored: true // table column names are snake_case not camelCase !!
+    underscored: true, // table column names are snake_case not camelCase !!
+  	timestamps: false
   }
 })
 
@@ -23,7 +24,8 @@ db.batches = require('../models/batches.js')(sequelize, Sequelize)
 db.members = require('../models/members.js')(sequelize, Sequelize)
 
 //Relations
-db.members.belongsTo(db.batches)
-db.batches.hasMany(db.members)
+db.members.belongsTo(db.batches, {foreignKey: 'batch_id'})
+db.batches.hasMany(db.members, {foreignKey: 'batch_id'})
 
 module.exports = db
+
