@@ -244,7 +244,7 @@ section {
 }
 
 #h1HOmepage{
-  font-size: 900%;
+  font-size: 850%;
   color: #2a344c;
   text-shadow: 10px 10px 10px #FFFFFF;
   text-align: center;
@@ -254,7 +254,7 @@ section {
 }
 
 .h2Center{
-  font-size: 220%;
+  font-size: 160%;
   color: #2a344c;
   text-shadow: 10px 10px 10px #FFFFFF;
   margin-top: 20%;
@@ -294,6 +294,9 @@ section {
 }*/
 
 /*LEDEN*/
+.backgroundLeden{
+  background: #fff;
+}
 #boomtopImg{
   height: 55%;
   width: 90%;
@@ -302,18 +305,51 @@ section {
 
 .profilePhoto{
   /*max-width: 20px;*/
-  height: 50%;
+    height: 15%;
+    width: 70%;
+    max-width: 100px;
+    margin: 1%;
 }
 
 .memberFrame{
-  padding: 0px;
-  height: 20%;
+  padding-left: 3%;
+  padding-right: 3%;
+  height: auto;
+  text-align: center;
+  border: solid 1px black;
+  margin-bottom: 3%;
 }
 .memberColumn{
   padding: 0px;
-  margin: 0px;
-  max-width: 100%;
-  overflow: hidden;
+  /*margin: 1px;*/
+  /*width: 14%;*/
+  text-align: center;
+  align-items: center;
+  display: inline-block;
+}
+
+.titleMembertemplate{
+  font-size: 100%;
+  text-align: center;
+  margin: 1%;
+}
+
+.memberFirstName{
+  margin: 0%;
+  font-size: 100%;
+}
+
+.memberLastName{
+  margin: 0%;
+  font-size: 80%;
+}
+
+.li-profile-container{
+  background: red;
+}
+
+.noPadding{
+  padding: 0px;
 }
 /*LOGIN*/
 .bgMarginrow{

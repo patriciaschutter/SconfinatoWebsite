@@ -24,8 +24,8 @@ db.batches = require('../models/batches.js')(sequelize, Sequelize)
 db.members = require('../models/members.js')(sequelize, Sequelize)
 
 //Relations
-db.members.belongsTo(db.batches, {foreignKey: 'batch_id'})
-db.batches.hasMany(db.members, {foreignKey: 'batch_id'})
+db.members.belongsTo(db.batches)
+db.batches.hasMany(db.members)
 
 module.exports = db
 

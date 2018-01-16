@@ -26,7 +26,7 @@ module.exports = (app, db, upload, path, fs) => {
 					last_name: allMembers[i].memberInfo.LN,
 					linkedin: allMembers[i].memberInfo.linkedin,
 					pf_photo: allMembers[i].profilePic.filename,
-					batch_id: parseInt(req.body.batch)
+					batch_id: parseInt(req.body.batch)+1
 				})
 			}
 			res.render("profile", {
