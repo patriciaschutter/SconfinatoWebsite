@@ -5,7 +5,7 @@ html
 		link(rel="stylesheet" type="text/css" href="src/sconfiCustom.css")
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 		meta(charset="utf-8")
-			
+		script(src="//platform.linkedin.com/in.js" type="text/javascript")
 	body
 		include nav
 		
@@ -18,13 +18,9 @@ html
 					h1(id="quoteLeden") 
 
 
-					<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+					
 
-					<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/patricia-schutter-56381144" data-format="hover" data-related="false"></script>
-
-					<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/patricia-borgers-8775a674/" data-format="hover" data-related="false"></script>
-
-				div(class="row")
+				
 					each batch in result
 						div(class="col-sm-6 memberFrame")
 							h1(id= `${JSON.stringify(batch)}` "" class="titleMembertemplate") Lichting #{batch.dataValues.batch}
@@ -34,7 +30,13 @@ html
 										each member in batch.members
 											div(class="col-sm-3 memberColumn")
 												img.profilePhoto(src="images/uploaded_db/"+member.pf_photo)
-												<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/patricia-schutter-56381144" data-format="hover" data-related="false" data-text="Patricia Schutter"></script>
+												if(member.linkedin)
+													h8 #{member.first_name} #{member.last_name} 
+													script(id="right" type="IN/MemberProfile" data-id=member.linkedin "" data-format="hover" data-related="false")
+												else
+													br
+													h8 #{member.first_name} #{member.last_name}
+													
 
 		include footer
 

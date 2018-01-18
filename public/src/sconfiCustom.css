@@ -102,10 +102,6 @@ div{
   align-items: center; /* align vertical */
 }
 
-
- 
-
-
 /* FOOTER */
 #footerContainer{
   /*background-color: #2a344c;*/
@@ -305,8 +301,8 @@ section {
 
 .profilePhoto{
   /*max-width: 20px;*/
-    height: 15%;
-    width: 70%;
+    height: 70%;
+    width: 90%;
     max-width: 100px;
     margin: 1%;
 }
@@ -316,8 +312,9 @@ section {
   padding-right: 3%;
   height: auto;
   text-align: center;
-  border: solid 1px black;
+  /*border: solid 1px black;*/
   margin-bottom: 3%;
+
 }
 .memberColumn{
   padding: 0px;
@@ -326,6 +323,8 @@ section {
   text-align: center;
   align-items: center;
   display: inline-block;
+  border: solid 1px beige;
+  height: 20%;
 }
 
 .titleMembertemplate{
@@ -351,6 +350,11 @@ section {
 .noPadding{
   padding: 0px;
 }
+
+#test{
+  text-align: center;
+}
+
 /*LOGIN*/
 .bgMarginrow{
   margin-top: 30%;

@@ -7,8 +7,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         inauguration: {
             type: DataTypes.DATEONLY,
-            unique: false, // ZET TERUG NAAR TRUE ALS KLAAR MET TESTING, MAAR NU PRIMA. 
-            allowNull: false
+            unique: false, 
+            allowNull: false,
+            defaultValue: DataTypes.NOW
         },
         batch_photo: {
             type: DataTypes.STRING,

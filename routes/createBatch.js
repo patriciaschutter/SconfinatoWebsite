@@ -18,10 +18,13 @@ module.exports = (app, db, upload, path, fs) => {
     // ROUTE ON SUBMIT BATCHFORM
     app.post('/batchRoute', upload.single("batch_photo"), function(req, res){
     	if(req.session.user){
-    		db.batches.create({
-    			batch: parseInt(req.body.batch),
-    			inauguration: req.body.inauguration,
-    			batch_photo: req.file.filename
+    		db.batches.findOrCreate({
+    			where: {
+                    batch: parseInt(req.body.batch) },
+                defaults: {
+        			inauguration: req.body.inauguration,
+        			batch_photo: req.file.filename
+                }
     		})
             .then(()=>{
                 db.batches.findAll({
