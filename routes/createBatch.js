@@ -13,18 +13,15 @@ module.exports = (app, db, upload, path, fs) => {
         } else {
             res.render("login")
         }
-    }) // closing app.get('/addLichtingPage')
+    }) // closing app.get
 
     // ROUTE ON SUBMIT BATCHFORM
     app.post('/batchRoute', upload.single("batch_photo"), function(req, res){
     	if(req.session.user){
-    		db.batches.findOrCreate({
-    			where: {
-                    batch: parseInt(req.body.batch) },
-                defaults: {
+    		db.batches.create({
+                    batch: parseInt(req.body.batch),
         			inauguration: req.body.inauguration,
         			batch_photo: req.file.filename
-                }
     		})
             .then(()=>{
                 db.batches.findAll({
@@ -46,17 +43,7 @@ module.exports = (app, db, upload, path, fs) => {
     	} else {
             res.render("login")
         }
-    }) // closing app.post('/batchRoute')
-
-    // ROUTE IF NOT LOGGED IN AND ON ADD BATCHFORM ROUTE
-    app.get('/batchRoute', (req, res) => {
-        if(req.session.user) {
-            res.redirect('createBatch')
-        } else {
-            res.render("login")
-        }
-    });// closing app.get('/batchRoute')
-
+    }) // closing app.post
 } // closing module.export
 
 

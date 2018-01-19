@@ -1,13 +1,13 @@
 module.exports = (app, db, bcrypt) => {
 	app.get("/login", (req, res) => {
-		if (req.session.user) { // already logged in so no need to login > index page rendered
+		if (req.session.user) { 
 			res.render("index", {
 				name: req.session.user.name
 			})
 		} else {
 			res.render("login")
 		}
-	})
+	})//end of app.get
 
 
 	app.post("/loginRoute", (req, res) => {
@@ -51,7 +51,7 @@ module.exports = (app, db, bcrypt) => {
 		.catch((e) => {
 		 	console.log(e)
 		})
-	})
+	})//end of app.post
 
 	app.get('/logout',function(req,res){
 	// if the user logs out, destroy all of their individual session
@@ -62,5 +62,5 @@ module.exports = (app, db, bcrypt) => {
 				res.redirect('/login');
 			}
 		})
-	})
+	})//end of app.get
 } //end of module exports

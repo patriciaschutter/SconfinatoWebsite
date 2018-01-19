@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // to give app.js acces
 
 
 app.use(session({
-    secret: 'keyboard cat', // MAKE THIS AN ENV VARIABLE ALSO
+    secret: 'keyboard cat', 
     cookie: {},
     resave: true,               
     saveUninitialized: true     
@@ -52,9 +52,12 @@ require("./routes/login_logout.js")(app, db, bcrypt)
 require("./routes/profile.js")(app, db)
 require("./routes/createBatch.js")(app, db, upload, path, fs)
 require("./routes/createMembers.js")(app, db, upload, path, fs)
+require("./routes/updateMembers1.js")(app, db, upload, path, fs)
+require("./routes/updateMembers2.js")(app, db, upload, path, fs)
+
 
 db.sequelize.sync({ 
-    force: false, // CHANGE THIS TO FALSE WHEN HOSTING - WILL OTHERWISE DELETE ALL DATA WHEN RESTARTING THE APP ! ! ! ! ! ! ! ! ! !! ! ! ! ! ! ! !! ! 
+    force: false, // CHANGE THIS TO FALSE WHEN HOSTING - WILL OTHERWISE DELETE ALL DATA WHEN RESTARTING 
     logging: console.log 
 }).then(()=> {
 	app.listen(WEBPORT, ()=>{

@@ -7,6 +7,6 @@ module.exports = (app) => {
 		else {
 			res.render('agenda')
 		}
-	})
-}
+	})//end of app.get
+}//end of module exports
 

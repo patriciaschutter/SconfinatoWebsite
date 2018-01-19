@@ -1,0 +1,50 @@
+html
+	head
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+		link(rel="stylesheet" type="text/css" href="src/sconfiCustom.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(charset="utf-8")
+		
+	body
+		include nav
+		
+		div(class="LargeContainer containerBackground container-fluid")
+			div(class="normalBGMarginrow row")
+				div(class="profileInfo col-sm-6 col-sm-offset-3 formBackground ")
+					h1(class="langeStreep" id="titleProfilepage") Update info
+					form(method="POST" class="form-horizontal formBackground" action="/updateMembers2Route" enctype="multipart/form-data")
+						each item in result
+							br
+							img.pictureSmall(src="images/uploaded_db/" + item.dataValues.pf_photo)
+							br
+							//- div(class="input-group")
+							//- 	label(for="pf_photo" class="form-control input-group-addon") Update picture
+							//- 	input(id="pf_photo" type="file" class="form-control-md" accept=".jpg, .jpeg, .png" name="pf_photo" value=item.dataValues.pf_photo)
+							//- br
+							div(class="input-group")
+								label(class="input-group-addon") Firstname
+								input(type="text"  class="form-control" name="first_name" placeholder="Voornaam" required  value=item.dataValues.first_name)
+							br
+							div(class="input-group")
+								label(class="input-group-addon") Lastname
+								input(type="text"  class="form-control" name="last_name" placeholder="Achternaam" required value=item.dataValues.last_name)
+							br
+							div(class="input-group")
+								label(class="input-group-addon") LinkedIn
+								input(type="text" class="form-control" name="linkedin" placeholder="linkedin link" value=item.dataValues.linkedin)
+							br
+							div(class="input-group")
+								input(type="hidden" name="memberid" value=item.dataValues.id)
+							div(class="col-sm-6 col-sm-offset-3")
+								input(id="submitUpdate" type="submit" class="btn btn-dark btn-md sconfi-btn" value="UPDATE") 
+								br
+								br
+		
+
+	script.
+		$(document).ready(function() {
+
+
+		}) // closing tag document.ready
+

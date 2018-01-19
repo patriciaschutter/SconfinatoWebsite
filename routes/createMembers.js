@@ -37,7 +37,7 @@ module.exports = (app, db, upload, path, fs) => {
 		} else {
             res.render("login")
         }	  
-	}) // closing app.post('/memberRoute')
+	}) // closing app.post
 
 } // closing module.export
 

@@ -7,6 +7,6 @@ module.exports = (app) => {
 		else {
 			res.render('index')
 		}
-	})
-}
+	})//end of app.post
+}//end of module exports
 

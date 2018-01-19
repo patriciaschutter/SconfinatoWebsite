@@ -88,7 +88,6 @@ div{
 }
 
 .nav > li > a {
-
   color: white;
 }
 .navbar-nav{
@@ -300,21 +299,37 @@ section {
 }
 
 .profilePhoto{
-  /*max-width: 20px;*/
-    height: 70%;
-    width: 90%;
-    max-width: 100px;
-    margin: 1%;
+  /*min-width: 100px;
+  min-height: 120px;*/
+  height: 74%;
+  width: 85%;
+  max-width: 100px;
+  margin: 1%;
 }
 
 .memberFrame{
-  padding-left: 3%;
-  padding-right: 3%;
+  padding: 0%;
+  /* padding-right: 3%; */
   height: auto;
   text-align: center;
-  /*border: solid 1px black;*/
+  /* border: solid 1px black; */
   margin-bottom: 3%;
+  /* background: blue; */
+  margin-top: 3%;
+  margin-bottom: 3%;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 40%;
+  align-items: center;
 
+}
+
+#membersInRow{
+  align-items: center;
+  text-align: center;
+  margin: 0, auto;
+  padding: 0, auto;
+  border: solid 1px darkblue;
 }
 .memberColumn{
   padding: 0px;
@@ -325,6 +340,7 @@ section {
   display: inline-block;
   border: solid 1px beige;
   height: 20%;
+  align-items: center;
 }
 
 .titleMembertemplate{
@@ -333,14 +349,8 @@ section {
   margin: 1%;
 }
 
-.memberFirstName{
-  margin: 0%;
-  font-size: 100%;
-}
-
-.memberLastName{
-  margin: 0%;
-  font-size: 80%;
+.memberNames{
+  font-size: 70%;
 }
 
 .li-profile-container{
@@ -463,4 +473,45 @@ border: solid 1px #2a344c;;
   opacity: 1;
 }
 
+/*UPDATE MEMBERS PAGE 1 & 2*/
+.langeStreep{
+  border-bottom: solid 2px black;
+}
+
+#submitUpdate{
+  width: 100%;
+  background-color: #ffffffcc;
+}
+
+.pictureSmall {
+  width: 50%;
+  height: 20%;
+  max-width: 100px;
+  max-height: 110px;
+  margin: 2%;
+}
+
+.profileInfo{
+  text-align: center;
+  min-height: 60%;
+}
+
+/*AGENDA*/
+#calenderDiv{
+  margin-left: 30%;
+}
+
+.LargeContainer{
+  height: 120%;
+}
+
+#agendaTitle{
+  font-size: 500%;
+  text-shadow: 10px 10px 10px #FFFFFF;
+  font-weight: bold;
+}
+
+iframe{
+  width: 100%;
+}
 

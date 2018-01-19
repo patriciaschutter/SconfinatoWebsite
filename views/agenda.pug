@@ -17,15 +17,14 @@ html
 	body
 		include nav
 		
-		div(class="containerBackground container-fluid")
-			div(class="normalBGMarginrow row")
+	
+		div(class="LargeContainer containerBackground container-fluid ")
+			div(class="normalBGMarginrow row" )
 				div(class="col-sm-12")
-					h3(class="h3titleFormMiddle") AGENDA 
-
-			div#calender
-
-			<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=500&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=patricia_schutter%40hotmail.com&amp;color=%231B887A&amp;src=nl.dutch%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=Europe%2FAmsterdam" style="border:solid 1px #777" width="600" height="500" frameborder="0" scrolling="no"></iframe>
-
+					h3(class="h3titleFormMiddle" id="agendaTitle") AGENDA 
+			div(class="row")
+				div(class="col-sm-8 col-sm-offset-2")
+					<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=500&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=patricia_schutter%40hotmail.com&amp;color=%231B887A&amp;src=nl.dutch%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=Europe%2FAmsterdam" style="border:solid 1px #777" width="500" height="400" frameborder="0" scrolling="no"></iframe>
 
 
 		include footer  
@@ -33,8 +32,5 @@ html
 	script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
 
 	script.
-		$(document).ready(function() {
-		    $('#calendar').fullCalendar({
-		        // put your options and callbacks here
-		    })
-		});
+		
+	

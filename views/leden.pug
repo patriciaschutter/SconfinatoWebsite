@@ -12,31 +12,26 @@ html
 		div(class="container-fluid backgroundLeden")
 			div(class="normalBGMarginrow row")
 				div(class="col-sm-12")
-					h3(class="h3titleFormMiddle") Stamboom 
-		
+					h3(class="h3titleFormMiddle") Sconfi stamboom
 					img(src="/images/leden/boomtop.png" id="boomtopImg")
+
 					h1(id="quoteLeden") 
 
-
-					
-
-				
 					each batch in result
 						div(class="col-sm-6 memberFrame")
 							h1(id= `${JSON.stringify(batch)}` "" class="titleMembertemplate") Lichting #{batch.dataValues.batch}
-							div(class="row")
-								div(class="col-sm-12 noPadding")
-									div(class="row" id="test")
-										each member in batch.members
-											div(class="col-sm-3 memberColumn")
-												img.profilePhoto(src="images/uploaded_db/"+member.pf_photo)
-												if(member.linkedin)
-													h8 #{member.first_name} #{member.last_name} 
-													script(id="right" type="IN/MemberProfile" data-id=member.linkedin "" data-format="hover" data-related="false")
-												else
-													br
-													h8 #{member.first_name} #{member.last_name}
-													
+							div(class="row" id="membersInRow")
+								each member in batch.members
+									div(class="col-sm-3 memberColumn")
+										img.profilePhoto(src="images/uploaded_db/"+member.pf_photo)
+										if(member.linkedin)
+											br
+											h8(class="memberNames") #{member.first_name} #{member.last_name} 
+											script(id="right" type="IN/MemberProfile" data-id=member.linkedin "" data-format="hover" data-related="false")
+										else
+											br
+											h8(class="memberNames") #{member.first_name} #{member.last_name}
+										
 
 		include footer
 

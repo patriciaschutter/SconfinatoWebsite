@@ -13,7 +13,6 @@ html
 		div(class="container-fluid" id="containerPrepage")
 			div(class="row prepageRow" id="videoRow")
 					div(class="hidden-sm-down col-md-12" id="divPrepageVideo")
-						//- a(href="/homepage")
 						video(id="videoPrepage" src="videos/prePagemovie3.mp4" autoplay="true" loop="false" muted="true")
 							
 						section(id="section04" class="scrollArrow")
@@ -24,11 +23,7 @@ html
 				div(class="col-sm-12")
 						h2(class="h2Center") DAMESDISPUUT 
 						h1(id="h1HOmepage") SCONFINATO
-						h2(class="h2Center" id="h2H0mepageRight") - DOE WAT GE WILT, DE MENSEN KLETSEN TOCH -
-					
-
-		
-
+						h2(class="h2Center" id="h2H0mepageRight") - DOE WAT GE WILT, DE MENSEN KLETSEN TOCH 
 		
 			include footer			
 	
@@ -68,15 +63,13 @@ html
 
 			  movieDiv.css({ 'opacity': calc });
 
-			  if (calc > '1') {
+			  if (calc > '0.75') {
 				movieDiv.css({ 'opacity': 1 });
 				$("#navbarID").fadeOut();
 
 			  } else if ( calc < '0' ) {
 				movieDiv.css({ 'opacity': 0 });
 				$("#navbarID").fadeIn();
-				
-
 			  } 
 			});
 		})

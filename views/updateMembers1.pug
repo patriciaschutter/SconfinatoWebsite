@@ -1,0 +1,42 @@
+html
+	head
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+		link(rel="stylesheet" type="text/css" href="src/sconfiCustom.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(charset="utf-8")
+		script.
+			function handleselect(myForm){
+				//- var selectIndex = myForm.selectedMember.selected
+				selIndex = myForm.selectedMember.selectedIndex;
+				//- alert(selIndex)
+				var selValue = myForm.selectedMember.options[selIndex].value;
+				//- alert(selValue)
+				$('#idInput').attr('value', 'selValue').end()
+
+			}
+			
+	body
+		include nav
+		
+		div(class="containerBackground container-fluid")
+			div(class="normalBGMarginrow row")
+				div(class="col-sm-10 col-sm-offset-1")
+				h1(class="langeStreep" id="titleProfilepage") SELECT MEMBER TO UPDATE INFO	
+			div(class="row")
+				div(class="col-sm-4 col-sm-offset-4")
+					form(id="myForm" method="POST" class="form-horizontal" action="/updateMembers1Route")
+						select(form="myForm" id="selectedMember" type="select" name="selectedMember" class="form-control" placeholder="select member" required autofocus onchange="handleselect(this.form)") 
+							option(value="" disabled) select Member
+								each member in result
+									option(value=member.dataValues.id) #{member.dataValues.first_name} #{member.dataValues.last_name}
+						input(id="idInput" type="hidden" name='idInput')
+						input(id="submitUpdate" type="submit" class="btn btn-dark btn-md sconfi-btn" value="UPDATE")
+
+	script.
+		$(document).ready(function() {
+
+			console.log($('select').val())
+
+		}) // closing tag document.ready
+

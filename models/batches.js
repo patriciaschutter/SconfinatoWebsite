@@ -1,5 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
     var Batch = sequelize.define('batches', {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
         batch: {
             type: DataTypes.INTEGER,
             unique: false,
@@ -8,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         inauguration: {
             type: DataTypes.DATEONLY,
             unique: false, 
-            allowNull: false,
+            allowNull: true,
             defaultValue: DataTypes.NOW
         },
         batch_photo: {
@@ -19,3 +24,4 @@ module.exports = (sequelize, DataTypes) => {
     })
     return Batch;
 }
+

@@ -7,5 +7,5 @@ module.exports = (app, db) => {
         } else {
             res.render("login")
         }
-    })
-}
+    })//end of app.get
+}//end of module exports
