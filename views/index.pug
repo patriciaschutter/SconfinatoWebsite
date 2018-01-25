@@ -3,7 +3,7 @@ html
 		title Sconfinato
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 		meta(charset="utf-8")
-		<link rel="icon" href="/images/general/wapen-donkerblauw.png">
+		link(rel="icon" href="/images/general/wapen-donkerblauw.png")
 		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
 		link(rel="stylesheet" type="text/css" href="/src/sconfiCustom.css")
 		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
@@ -32,6 +32,7 @@ html
 				div(class="col-sm-12 spacing10procent")
 				div(class="col-sm-12 spacing10procent")
 				div(class="col-sm-12 spacing10procent")
+				div(class="col-sm-12 spacing5procent")
 				div(class="col-sm-12")
 					h2(class="h2Center") DAMESDISPUUT 
 					h1(id="h1HOmepage") SCONFINATO
@@ -43,7 +44,7 @@ html
 		
 		div(class="row")
 			div(class="col-sm-10 col-sm-offset-1 borderBlue")
-				h2.titleFrames MEET SCONFI
+				h2.titleFrames SCONFI'S
 				div(id="myCarousel" class="carousel slide ")
 					ol(class="carousel-indicators")
 						li(data-target="#myCarousel" data-slide-to="0" class="active")
@@ -72,121 +73,26 @@ html
 				br
 			div(class="col-sm-12 spacing5procent")
 
-			div(class="col-sm-10 col-sm-offset-1 noPadding")
-				div(class="col-sm-3 linkOnIndex")
-					a(class="navA" href="/leden") Leden
-				div(class="col-sm-3 linkOnIndex")
-					a(class="navA" href="/agenda") Agenda
-				div(class="col-sm-3 linkOnIndex")
-					a(class="navA" href="/maastricht") Maastricht
-				div(class="col-sm-3 linkOnIndex")
-					a(class="navA" href="/foto's") Foto's
-
-					//- div(class="slideshow-container")
-					//- 	div(class="mySlides fade")
-					//- 		div(class="numbertext") 1 / 3
-					//- 		img.imgCarousel(src="/images/index/carousel/3groepLustrumAmp.jpg" style="width:100%;")
-					//- 		div(class="text") Caption Text
-						
-					//- 	div(class="mySlides fade")
-					//- 		div(class="numbertext") 2 / 3
-					//- 		img.imgCarousel(src="/images/index/carousel/3groepLustrumAmp.jpg" style="width:100%;")
-					//- 		div(class="text") Caption Two
-						
-					//- 	div(class="mySlides fade")
-					//- 		div(class="numbertext") 3 / 3
-					//- 		img.imgCarousel(src="/images/index/carousel/3groepLustrumAmp.jpg" style="width:100%;")
-					//- 		div(class="text") Caption Three
-						
-
-					//- 	a(class="prev" role="button" onclick="plusSlides(-1)") &#10094;
-					//- 	a(class="next" role="button" onclick="plusSlides(1)") &#10095;
-
-					//- br
-
-					//- div(style="text-align:center")
-					//- 	span(class="dot" onclick="currentSlide(1)")
-					//- 	span(class="dot" onclick="currentSlide(2)")
-					//- 	span(class="dot" onclick="currentSlide(3)")
-
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					//- div(class="col-sm-4")
-					//- 	img(src="/images/index/carousel/3groepLustrumAmp.jpg" style="width: 100%;")
-					//- div(class="col-sm-4")
-					//- 	img(src="/images/index/lustrum_V.jpg" style="width: 100%;")
-					//- div(class="col-sm-4")
-					//- 	img(src="/images/index/lustrum_VI.jpg" style="width: 100%;")
-
-
-
-					//- div.slideshow-container
-					//- 	div(class="mySlides fade")
-					//- 		img(src="/images/index/lustrum_V.jpg" style="width: 100%;")
-					//- 		div(class="text") Lustrum V | Rome '12
-					//- 	div(class="mySlides fade")
-					//- 		img(src="/images/index/carousel/3groepLustrumAmp.jpg" style="width: 100%;")
-					//- 		div(class="text") Lustrum Amphitryon '17
-					//- 	a(class="prev" onclick="plusSlides(-1)") &#10094;
-					//- 	a(class="next" onclick="plusSlides(1)") &#10095;
-
-					//- 	<div style="text-align:center">
-					//- 		<span class="dot" onclick="currentSlide(1)"></span> 
-					//- 		<span class="dot" onclick="currentSlide(2)"></span> 
-					//- 		//- <span class="dot" onclick="currentSlide(3)"></span> 
-						</div>
-
-
-
-
-
-
-
-
-
-
-						//- div(class="col-sm-4 lustrumColumn")
-						//- 	h2.titleLustrum LUSTRUM IV
-						//- 	p.underTitleLustrum Nooit meer naar huis | Mallorca '07
-
-						//- div(class="col-sm-4 lustrumColumn")
-						//- 	h2.titleLustrum LUSTRUM V
-						//- 	p.underTitleLustrum La vita è bella | Lissabon '12
-						//- 	img.imgLustrumV(src="/images/index/lustrum_V.jpg")
-
-						//- div(class="col-sm-4 lustrumColumn")
-						//- 	h2.titleLustrum LUSTRUM VI
-						//- 	p.underTitleLustrum Back to our roots | Rome '17
-						//- 	img.imgLustrumVI(src="/images/index/lustrum_VI.jpg")
-						//- 	br
-
-			div.row
-			include footer			
+		div(class="row")
+			div(class="col-sm-10 col-sm-offset-1 borderBlue")
+				h2.titleFrames(style="float: right") CLICK FOR MORE
+				div(class="col-sm-12 spacing5procent")
+				div(class="col-sm-2 linkOnIndex")
+					a(class="buttonsIndex" href="/leden") Leden
+				div(class="col-sm-2 linkOnIndex")
+					a(class="buttonsIndex" href="/agenda") Agenda
+				div(class="col-sm-2 linkOnIndex")
+					a(class="buttonsIndex" href="/maastricht") Maastricht
+				div(class="col-sm-2 linkOnIndex")
+					a(class="buttonsIndex" href="/foto's") Foto's
+				div(class="col-sm-2 linkOnIndex")
+					a(class="buttonsIndex" href="/leden") OLV
+				div(class="col-sm-2 linkOnIndex")
+					a(class="buttonsIndex" href="/leden") Contact
+				div(class="col-sm-12 spacing5procent")
+			div(class="col-sm-12 spacing5procent")
+		div.row
+		include footer			
 	
 
 	script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")

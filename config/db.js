@@ -22,6 +22,7 @@ db.sequelize = sequelize;
 db.users = require('../models/users.js')(sequelize, Sequelize)
 db.batches = require('../models/batches.js')(sequelize, Sequelize)
 db.members = require('../models/members.js')(sequelize, Sequelize)
+db.praesidia = require('../models/praesidia.js')(sequelize, Sequelize)
 
 //Relations
 db.members.belongsTo(db.batches)

@@ -54,6 +54,7 @@ require("./routes/createBatch.js")(app, db, upload, path, fs)
 require("./routes/createMembers.js")(app, db, upload, path, fs)
 require("./routes/updateMembers1.js")(app, db, upload, path, fs)
 require("./routes/updateMembers2.js")(app, db, upload, path, fs)
+require("./routes/updatePraesidium.js")(app, db, upload, path, fs)
 
 
 db.sequelize.sync({ 

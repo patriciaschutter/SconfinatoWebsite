@@ -1,6 +1,7 @@
 html
 	head
 		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+		link(rel="icon" href="/images/general/wapen-donkerblauw.png")
 		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
 		link(rel="stylesheet" type="text/css" href="src/sconfiCustom.css")
 		meta(name="viewport" content="width=device-width, initial-scale=1")
@@ -32,7 +33,7 @@ html
 									option(value=member.dataValues.id) #{member.dataValues.first_name} #{member.dataValues.last_name}
 						input(id="idInput" type="hidden" name='idInput')
 						input(id="submitUpdate" type="submit" class="btn btn-dark btn-md sconfi-btn" value="UPDATE")
-
+		include footer
 	script.
 		$(document).ready(function() {
 

@@ -1,0 +1,54 @@
+html
+	head
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+		link(rel="icon" href="/images/general/wapen-donkerblauw.png")
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+		link(rel="stylesheet" type="text/css" href="src/sconfiCustom.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(charset="utf-8")
+			
+	body
+		include nav
+		
+		div(class="containerBackground container-fluid")
+			div(class="normalBGMarginrow row")
+				div(class="col-sm-10 col-sm-offset-1")
+				h1(class="langeStreep" id="titleProfilepage") SELECT NEW PRAESIDUM	
+			div(class="row")
+				form(id="praesidumForm" method="POST" class="form-horizontal" action="/updatePraesidiumRoute")
+					div(class="col-sm-2 col-sm-offset-2")
+						h2.h2Center Pipa
+						br
+						select(form="praesidumForm" id="pipa" type="select" name="pipa" class="form-control" placeholder="select member" required autofocus onchange="handleselect(this.form)")
+							option(value="" disabled) select Member
+								each member in result
+									option(value=member.dataValues.first_name+' '+member.dataValues.last_name) #{member.dataValues.first_name} #{member.dataValues.last_name}
+					div(class="col-sm-2")
+						h2.h2Center Vice
+						br
+						select(form="praesidumForm" id="vice" type="select" name="vice" class="form-control" placeholder="select member" required autofocus onchange="handleselect(this.form)")
+							option(value="" disabled) select Member
+								each member in result
+									option(value=member.dataValues.first_name+' '+member.dataValues.last_name) #{member.dataValues.first_name} #{member.dataValues.last_name}
+					div(class="col-sm-2")
+						h2.h2Center Questrix
+						br
+						select(form="praesidumForm" id="ques" type="select" name="ques" class="form-control" placeholder="select member" required autofocus onchange="handleselect(this.form)")
+							option(value="" disabled) select Member
+								each member in result
+									option(value=member.dataValues.first_name+' '+member.dataValues.last_name) #{member.dataValues.first_name} #{member.dataValues.last_name}
+						
+					div(class="col-sm-2")
+						h2.h2Center Month / Year
+						br
+						input(type="month" name="monthPraesidium" class="form-control" required autofocus onchange="handleselect(this.form)")
+					div(class="col-sm-12 spacing5procent")
+					div(class="col-sm-2 col-sm-offset-5")
+						input(id="submitUpdate" type="submit" class="btn btn-dark btn-md sconfi-btn" value="UPDATE")
+		include footer
+	script.
+		$(document).ready(function() {
+
+
+		}) // closing tag document.ready
+			
