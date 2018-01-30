@@ -19,27 +19,28 @@ module.exports = (app, db) => {
 	})//end of app.get
 
 	//UPDATE PRAESIDIUM ROUTE
-	app.post('/updatePraesidiumRoute', (req, res) => {
-		// if(req.session.user) {
+	app.post('/updatePraesidiumRoute', upload.single("praesidium_photo"), (req, res) => {
 			console.log(" SWHHASDLIFJ", req.body)
-			res.send("OKAYY")
-	// 		db.members.findAll({
-	// 			where: {
-	// 				id: req.body.selectedMember
-	// 			}
-	// 		})
-	// 		.then((result) => {
-	// 			res.render('updateMembers2', {
-	// 				name: req.session.user.name, 
-	// 				result: result
-	// 			})
-	// 		})
-	// 		.catch(err =>{
-	//     		console.log(err)
-	// 		})
-	// 	} else {
-	// 		res.render('login')
-	// 	}
+			console.log("req.file ==== ", req.file)
+		if(req.session.user){
+			db.praesidia.create({
+				pipa: req.body.pipa,
+				vice: req.body.vice,
+				questrix: req.body.questrix,
+				monthyear: req.body.monthyear,
+				praesidium_photo: req.file.filename
+			})
+			.then((result) =>{
+				res.render('profile', {
+					name: req.session.user.name,
+					succesMessage: `Preasidium has been updated`
+				})
+			})
+		   .catch((e) => {
+				console.log(e)
+			})
+		} else {
+			res.render("login")
+		}
 	}) // end of app.post
 }
-

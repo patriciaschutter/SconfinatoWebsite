@@ -1,17 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     var Praesidium = sequelize.define('praesidia', {
-        month: {
-            type: DataTypes.INTEGER,
-            unique: false,
-            allowNull: false,
-            values: ['Sep', 'Feb']
-        },
-        year: {
-            type: DataTypes.STRING,
-            unique: false, 
-            allowNull: true,
-            defaultValue: DataTypes.NOW
-        },
         pipa: {
             type: DataTypes.STRING,
             unique: false, 
@@ -22,12 +10,17 @@ module.exports = (sequelize, DataTypes) => {
             unique: false, 
             allowNull: true
         },
-        ques: {
+        questrix: {
             type: DataTypes.STRING,
             unique: false, 
             allowNull: true
         },
-        batch_photo: {
+        monthyear: {
+            type: DataTypes.DATE,
+            unique: false,
+            allowNull: true,
+        },
+        praesidium_photo: {
             type: DataTypes.STRING,
             unique: false,
             allowNull: true
@@ -35,4 +28,3 @@ module.exports = (sequelize, DataTypes) => {
     })
     return Praesidium;
 }
-

@@ -44,7 +44,7 @@ require("./routes/index.js")(app)
 
 require("./routes/leden.js")(app, db)
 require("./routes/agenda.js")(app)
-// require("./routes/maastricht.js")(app)
+require("./routes/photoPage.js")(app)
 // require("./routes/contact.js")(app)
 
 require("./routes/signup.js")(app, db, bcrypt)

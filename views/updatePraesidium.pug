@@ -15,36 +15,42 @@ html
 				div(class="col-sm-10 col-sm-offset-1")
 				h1(class="langeStreep" id="titleProfilepage") SELECT NEW PRAESIDUM	
 			div(class="row")
-				form(id="praesidumForm" method="POST" class="form-horizontal" action="/updatePraesidiumRoute")
-					div(class="col-sm-2 col-sm-offset-2")
+				form(id="praesidiumForm" method="POST" class="form-horizontal" action="/updatePraesidiumRoute" enctype="multipart/form-data")
+					div(class="col-sm-2 col-sm-offset-1")
 						h2.h2Center Pipa
 						br
-						select(form="praesidumForm" id="pipa" type="select" name="pipa" class="form-control" placeholder="select member" required autofocus onchange="handleselect(this.form)")
-							option(value="" disabled) select Member
+						select(form="praesidiumForm" id="pipa" type="select" name="pipa" class="form-control" required autofocus onchange="handleselect(this.form)")
+							option(value="") select Member
 								each member in result
 									option(value=member.dataValues.first_name+' '+member.dataValues.last_name) #{member.dataValues.first_name} #{member.dataValues.last_name}
 					div(class="col-sm-2")
 						h2.h2Center Vice
 						br
-						select(form="praesidumForm" id="vice" type="select" name="vice" class="form-control" placeholder="select member" required autofocus onchange="handleselect(this.form)")
-							option(value="" disabled) select Member
+						select(form="praesidiumForm" id="vice" type="select" name="vice" class="form-control" required autofocus onchange="handleselect(this.form)")
+							option(value="") select Member
 								each member in result
+									
 									option(value=member.dataValues.first_name+' '+member.dataValues.last_name) #{member.dataValues.first_name} #{member.dataValues.last_name}
 					div(class="col-sm-2")
 						h2.h2Center Questrix
 						br
-						select(form="praesidumForm" id="ques" type="select" name="ques" class="form-control" placeholder="select member" required autofocus onchange="handleselect(this.form)")
-							option(value="" disabled) select Member
+						select(form="praesidiumForm" id="questrix" type="select" name="questrix" class="form-control" placeholder="select member" required autofocus onchange="handleselect(this.form)")
+							option(value="") select Member
 								each member in result
 									option(value=member.dataValues.first_name+' '+member.dataValues.last_name) #{member.dataValues.first_name} #{member.dataValues.last_name}
 						
 					div(class="col-sm-2")
 						h2.h2Center Month / Year
 						br
-						input(type="month" name="monthPraesidium" class="form-control" required autofocus onchange="handleselect(this.form)")
+						input(type="month" name="monthyear" class="form-control" required autofocus onchange="handleselect(this.form)")
+					div(class="col-sm-2")
+						h2.h2Center Photo
+						br
+						input(type="file" name="praesidium_photo" id="praesidium_photo" class="form-control inputfile" accept=".jpg, .jpeg, .png" required)
 					div(class="col-sm-12 spacing5procent")
 					div(class="col-sm-2 col-sm-offset-5")
 						input(id="submitUpdate" type="submit" class="btn btn-dark btn-md sconfi-btn" value="UPDATE")
+					
 		include footer
 	script.
 		$(document).ready(function() {
